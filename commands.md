@@ -85,8 +85,15 @@ pkg which <filename>                    # find out which package installed a giv
 # Network
 
 ```
- /etc/rc.d/netif restart && \           # restart networking and routing after changing the configuration
- /etc/rc.d/routing restart                without rebooting. Execute in tmux or screen session
+ifconfig <iface> inet <ip/mask>         # configure IP address on interface
+ifconfig <iface> inet <ip/mask> alias   # configure IP address alias on interface
+ifconfig <iface> del <ip>               # remove IP address from interface
+route add -net default <gw_ip>          # add default route
+route add -net <ip/mask> <gw_ip>        # add a custom route for given network
+netstat -rn                             # display routing table
+netstat -an                             # display all connections
+/etc/rc.d/netif restart && \            # restart networking and routing after changing the configuration
+/etc/rc.d/routing restart                 without rebooting. Execute in tmux or screen session
 ```
 
 # IPsec
