@@ -49,7 +49,7 @@ zfs rollback <pool>/<dataset>@name      # rollback of a dataset to a given snaps
 zfs destroy <pool>/<dataset>            # destroy a dataset / remove it from the pool
 zfs destroy <pool>/<dataset>@name       # destroy a snapshot
 zfs set <key>=<val> <pool>/<dataset>    # generic way of setting options on a given dataset
-zfs set compression=lzjb tank/var/log   # enable LZJB compression on /var/logs
+zfs set compression=lz4 tank/var/log    # enable LZ4 compression on /var/logs
 zfs get compressratio <pool>/<dataset>  # show the current compression ratio of a dataset
 zfs send -R tank@snapshot | \           # send all datasets@snapshot recursively to another host
 ssh root@[IP] zfs recv -F tank
