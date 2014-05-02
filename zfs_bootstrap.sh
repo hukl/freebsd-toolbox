@@ -90,7 +90,32 @@ done
 
 cp /var/tmp/zpool.cache /mnt/boot/zfs/
 
-echo 'zfs_enable="YES"' >> /mnt/etc/rc.conf
-echo 'zfs_load="YES"' >> /mnt/boot/loader.conf
-echo 'vfs.root.mountfrom="zfs:tank"' >> /mnt/boot/loader.conf
-touch /mnt/etc/fstab
+
+cat > /etc/rc.conf << RCCONF
+hostname="my.host.name"
+
+zfs_enable="YES"
+
+# Network
+
+defaultrouter="xxx.xxx.xxx.xxx"
+ifconfig_em1="inet xxx.xxx.xxx.xxx/xx"
+
+# Services
+sendmail_enable="NONE"
+sshd_enable="YES"
+RCCONF
+
+
+cat > /etc/fstab <<FSTAB
+# Device                       Mountpoint              FStype  Options         Dump    Pass#
+/dev/gpt/swap0                 none                    swap    sw              0       0
+/dev/gpt/swap1                 none                    swap    sw              0       0
+FSTAB
+
+
+cat > /boot/loader.conf <<LOADER
+zfs_load="YES"
+vfs.root.mountfrom="zfs:tank"
+vfs.zfs.arc_max="16G"
+LOADER
