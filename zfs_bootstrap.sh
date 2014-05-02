@@ -107,14 +107,14 @@ sshd_enable="YES"
 RCCONF
 
 
-cat > /etc/fstab <<FSTAB
+cat > /etc/fstab << FSTAB
 # Device                       Mountpoint              FStype  Options         Dump    Pass#
 /dev/gpt/swap0                 none                    swap    sw              0       0
 /dev/gpt/swap1                 none                    swap    sw              0       0
 FSTAB
 
 
-cat > /boot/loader.conf <<LOADER
+cat > /boot/loader.conf << LOADER
 zfs_load="YES"
 vfs.root.mountfrom="zfs:tank"
 vfs.zfs.arc_max="16G"
