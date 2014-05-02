@@ -53,12 +53,15 @@ gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 1 ada1
 
 # Create ZFS Pool
 echo "Create ZFS Pool"
-zpool create -o mountpoint=/mnt -o cachefile=/var/tmp/zpool.cache tank mirror /dev/gpt/disk0 /dev/gpt/disk1
+zpool create tank mirror /dev/gpt/disk0 /dev/gpt/disk1
 
 # Set proper mountpoint
 echo "Setting Mountpoint"
 zfs set mountpoint=/ tank
 
+# Export and import the Pool 
+zpool export tank
+zpool import -o altroot=/mnt -o cachefile=/var/tmp/zpool.cache 
 
 # Enable Compression
 echo "Enabling Compression"
