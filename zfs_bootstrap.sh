@@ -61,7 +61,7 @@ zfs set mountpoint=/ tank
 
 # Export and import the Pool 
 zpool export tank
-zpool import -o altroot=/mnt -o cachefile=/var/tmp/zpool.cache 
+zpool import -o altroot=/mnt -o cachefile=/var/tmp/zpool.cache tank
 
 # Enable Compression
 echo "Enabling Compression"
