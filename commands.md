@@ -17,6 +17,7 @@ cat /var/run/dmesg.boot                 # show boot log with info about disks an
 kenv                                    # show bios, board and chassi info (dump from kernel env)
 pciconf -l -cv                          # show info about PCI devices of the machine
 camcontrol devlist -v                   # list of attached ATA devices
+ifconfig                                # show and configure network interface parameters
 sysctl                                  # tool to show/set all system/kernel coniguration variables
 sysctl -a                               # show all stystem/kernel configuration variables
 sysctl hw                               # show hardware related info and settings
@@ -31,7 +32,6 @@ sysctl net.inet.tcp.delayed_ack=0       # disable delayed ack in tcp
 ```
 top                                     # display and update information about the top cpu processes
 ps auxwww | grep <processname>          # display process status
-ifconfig                                # show and configure network interface parameters
 systat -vmstat 1                        # show general overview of load, memory, interrupts, disk io
 systat -iostat 1                        # show disk throughput
 systat -ifstat 1                        # show network throughput for all interfaces
