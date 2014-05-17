@@ -137,6 +137,4 @@ hw.usb.no_shutdown_wait=1               # don't wait for USB devices when shutti
                                           
 kern.maxfiles=204800                    # Increase file descriptor limits                       
 kern.maxfilesperproc=200000
-
-
 ```
