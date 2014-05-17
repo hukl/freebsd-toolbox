@@ -128,3 +128,15 @@ ipsec restart                           # terminates all ipsec connections, send
 ipsec stroke up [conn]                  # initiate connection [conn]
 ipsec stroke down [conn]                # terminate connection [conn]
 ```
+
+# Common sysctl's to set
+
+```
+hw.usb.no_shutdown_wait=1               # don't wait for USB devices when shutting down (if your system hangs when  
+                                          rebooting)
+                                          
+kern.maxfiles=204800                    # Increase file descriptor limits                       
+kern.maxfilesperproc=200000
+
+
+```
