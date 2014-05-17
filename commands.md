@@ -90,10 +90,14 @@ ifconfig <iface> inet <ip/mask> alias   # configure IP address alias on interfac
 ifconfig <iface> del <ip>               # remove IP address from interface
 route add -net default <gw_ip>          # add default route
 route add -net <ip/mask> <gw_ip>        # add a custom route for given network
-netstat -rn                             # display routing table
-netstat -an                             # display all connections
 /etc/rc.d/netif restart && \            # restart networking and routing after changing the configuration
 /etc/rc.d/routing restart                 without rebooting. Execute in tmux or screen session
+netstat -rn                             # display routing table
+netstat -an                             # display all connections
+netstat -m                              # display buffer usage
+netstat -Lan                            # display status of listen queues
+sysctl kern.ipc.numopensockets          # display number of open sockets
+
 ```
 
 # Firewall
