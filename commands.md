@@ -96,6 +96,13 @@ netstat -an                             # display all connections
 /etc/rc.d/routing restart                 without rebooting. Execute in tmux or screen session
 ```
 
+# Firewall
+
+```
+pfctl -si                               # show current state table and counters (useful for tuning)
+pfctl -s state                          # show current content of state table
+```
+
 # IPsec
 
 ```
