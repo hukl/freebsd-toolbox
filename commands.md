@@ -98,10 +98,11 @@ netstat -rn                             # display routing table
 netstat -an                             # display all connections
 netstat -m                              # display buffer usage
 netstat -Lan                            # display status of listen queues
+netstat -s                              # display extensive statistics per protocol (use -p tcp to only show tcp)
 sysctl kern.ipc.numopensockets          # display number of open sockets
 vmstat -z | egrep "ITEM|tcpcb"          # number of hash table buckets to handle incoming tcp connections
                                           increase net.inet.tcp.tcbhashsize if hitting the limit
-sysctl net.inet.tcp.hostcache.list      # show current content of hostcache with its parameters per IP
+sysctl net.inet.tcp.hostcache.list      # display current content of hostcache with its parameters per IP
 ```
 
 # Firewall
