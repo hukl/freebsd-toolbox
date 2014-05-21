@@ -1,5 +1,4 @@
-![Flattr this](https://api.flattr.com/button/flattr-badge-large.png)
-
+<a href="https://flattr.com/submit/auto?user_id=hukl&url=https%3A%2F%2Fgithub.com%2Fhukl%2Ffreebsd-toolbox%2Fblob%2Fmaster%2Fcommands.md" target="_blank"><img src="https://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
 
 # Users
 ```
