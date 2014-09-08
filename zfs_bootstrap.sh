@@ -23,8 +23,8 @@ gpart add -a 4k -s 64k -t freebsd-boot ada1
 
 # Create Swap Partitions
 echo "Create Swap Partitions"
-gpart add -a 4k -s 2G -t freebsd-swap -l swap0 ada0
-gpart add -a 4k -s 2G -t freebsd-swap -l swap1 ada1
+gpart add -a 4k -s 4G -t freebsd-swap -l swap0 ada0
+gpart add -a 4k -s 4G -t freebsd-swap -l swap1 ada1
 
 
 # Create Main Partitions
