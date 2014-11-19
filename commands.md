@@ -84,6 +84,18 @@ pkg upgrade <packagename>               # upgrade a packages
 pkg which <filename>                    # find out which package installed a given file
 ```
 
+# Services
+
+```
+service -l                              # list all available services
+service -e                              # list all enabled services
+service <servicename> status            # show the status of the service with the given servicename
+service <servicename> start             # start the service with the given servicename
+service <servicename> stop              # stop the service with the given servicename
+service <servicename> restart           # restart the service with the given servicename
+service <servicename> reload            # reload the configuration of the service with the given servicename
+```
+
 # Network
 
 ```
