@@ -47,6 +47,7 @@ systat -tcp 1                           # show tcp statistics
 zfs list                                # list all zfs datasets (volumes)
 zfs snapshot <pool>/<dataset>@<name>    # generic way of creating a snapshot of a dataset in a storage pool
 zfs snapshot -r tank@2014021301         # create a snapshot of all datasets in the pool "tank"
+zfs create <pool>/<dataset>             # create a new dataset
 zfs rollback <pool>/<dataset>@name      # rollback of a dataset to a given snapshot
 zfs destroy <pool>/<dataset>            # destroy a dataset / remove it from the pool
 zfs destroy <pool>/<dataset>@name       # destroy a snapshot
