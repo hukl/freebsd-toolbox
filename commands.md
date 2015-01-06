@@ -148,6 +148,17 @@ ipsec stroke up [conn]                  # initiate connection [conn]
 ipsec stroke down [conn]                # terminate connection [conn]
 ```
 
+# ezjail
+
+```
+ezjail-admin start|stop                 # start and stop all the jails
+ezjail-admin start|stop <JID>|<hostname># start and stop individual jail
+ezjail-admin list                       # list all the jails on the host system
+ezjail-admin console <JID>|<hostname>   # open root shell into jail
+ezjail-admin create -f exmaple <IP> <hostname> # create a new jail
+ezjail-admin delete -w hostname         # delete the jail (in case you use zfs also delete the volume)
+```
+
 # Common sysctl's to set
 
 ```
