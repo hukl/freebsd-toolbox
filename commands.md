@@ -56,11 +56,13 @@ zfs get compressratio <pool>/<dataset>  # show the current compression ratio of 
 zfs send -R tank@snapshot | \           # send all datasets@snapshot recursively to another host
 ssh root@[IP] zfs recv -F tank
 zfs unmount <pool>/<dataset>            # unmount a zfs dataset
+zfs upgrade -r <pool>                   # upgrade all volumes in the pool (technically its the root volume e.g. tank)
 zpool status                            # show health info about currently imported ZFS storage pools
 zpool scrub                             # check all written blocks for consistency
 zpool iostat -v tank                    # show more information about the pool including log devices
 zpool add <pool> mirror <dev1> <dev1>   # add two disks as mirror to a storage pool
 zpool remove <pool> <device>            # remove single devices or mirror sets from the storage pool
+zpool upgrade <pool>                    # upgrade the storage pool to latest version
 ```
 
 # Software
