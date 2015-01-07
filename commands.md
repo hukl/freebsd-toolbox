@@ -71,6 +71,7 @@ zpool upgrade <pool>                    # upgrade the storage pool to latest ver
 # Ports
 portsnap fetch                          # fetch the latest portfiles
 portsnap update                         # update the portfiles on disk with the previously fetched portfiles
+portsnap update -p /usr/jails/basejail/usr/ports # update ports tree for jails
 whereis <portname>                      # show the directory of the portfile
 cd /usr/ports/*/<portname>              # find the parent directory of a given portname
 locate <portname> | grep ports          # manual way of searching for ports
