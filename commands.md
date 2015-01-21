@@ -85,6 +85,11 @@ pkg info                                # show list of currently installed ports
 pkg version                             # show which ports/packages are outdated and need an update
 pkg upgrade <packagename>               # upgrade a packages
 pkg which <filename>                    # find out which package installed a given file
+
+# System
+freebsd-update fetch                    # fetch updates from server
+freebsd-update -r <target> upgrade      # fetch upgrades to specified version (e.g. '10.1-RELEASE') from server
+freebsd-update install                  # install downloaded updates/upgrades
 ```
 
 # Services
