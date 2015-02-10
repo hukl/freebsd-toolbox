@@ -77,6 +77,7 @@ cd /usr/ports/*/<portname>              # find the parent directory of a given p
 locate <portname> | grep ports          # manual way of searching for ports
 cd <portdir> && make install            # compile and install a port
 cd <portdir> && make config             # re-run configuration of a port when available
+cd <portdir> && sudo make deinstall clean reinstall # upgrade the port
 
 # Packages
 pkg search <packagename>                # search for binary packages
