@@ -21,7 +21,7 @@ pciconf -l -cv                          # show info about PCI devices of the mac
 camcontrol devlist -v                   # list of attached ATA devices
 ifconfig                                # show and configure network interface parameters
 sysctl                                  # tool to show/set all system/kernel coniguration variables
-sysctl -a                               # show all stystem/kernel configuration variables
+sysctl -a                               # show all system/kernel configuration variables
 sysctl hw                               # show hardware related info and settings
 sysctl net                              # show all network related info and settings
 sysctl hw.model                         # show CPU model
