@@ -34,6 +34,7 @@ sysctl net.inet.tcp.delayed_ack=0       # disable delayed ack in tcp
 ```
 top                                     # display and update information about the top cpu processes
 ps auxwww | grep <processname>          # display process status
+CTRL-t                                  # on running commands will output useful info
 systat -vmstat 1                        # show general overview of load, memory, interrupts, disk io
 systat -iostat 1                        # show disk throughput
 systat -ifstat 1                        # show network throughput for all interfaces
