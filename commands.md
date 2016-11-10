@@ -21,7 +21,7 @@ pciconf -l -cv                          # show info about PCI devices of the mac
 camcontrol devlist -v                   # list of attached ATA devices
 ifconfig                                # show and configure network interface parameters
 sysctl                                  # tool to show/set all system/kernel coniguration variables
-sysctl -a                               # show all stystem/kernel configuration variables
+sysctl -a                               # show all system/kernel configuration variables
 sysctl hw                               # show hardware related info and settings
 sysctl net                              # show all network related info and settings
 sysctl hw.model                         # show CPU model
@@ -34,6 +34,7 @@ sysctl net.inet.tcp.delayed_ack=0       # disable delayed ack in tcp
 ```
 top                                     # display and update information about the top cpu processes
 ps auxwww | grep <processname>          # display process status
+CTRL-t                                  # on running commands will output useful info
 systat -vmstat 1                        # show general overview of load, memory, interrupts, disk io
 systat -iostat 1                        # show disk throughput
 systat -ifstat 1                        # show network throughput for all interfaces
@@ -47,6 +48,7 @@ systat -tcp 1                           # show tcp statistics
 zfs list                                # list all zfs datasets (volumes)
 zfs snapshot <pool>/<dataset>@<name>    # generic way of creating a snapshot of a dataset in a storage pool
 zfs snapshot -r tank@2014021301         # create a snapshot of all datasets in the pool "tank"
+zfs create <pool>/<dataset>             # create a new dataset
 zfs rollback <pool>/<dataset>@name      # rollback of a dataset to a given snapshot
 zfs destroy <pool>/<dataset>            # destroy a dataset / remove it from the pool
 zfs destroy <pool>/<dataset>@name       # destroy a snapshot
@@ -56,11 +58,13 @@ zfs get compressratio <pool>/<dataset>  # show the current compression ratio of 
 zfs send -R tank@snapshot | \           # send all datasets@snapshot recursively to another host
 ssh root@[IP] zfs recv -F tank
 zfs unmount <pool>/<dataset>            # unmount a zfs dataset
+zfs upgrade -r <pool>                   # upgrade all volumes in the pool (technically its the root volume e.g. tank)
 zpool status                            # show health info about currently imported ZFS storage pools
 zpool scrub                             # check all written blocks for consistency
 zpool iostat -v tank                    # show more information about the pool including log devices
 zpool add <pool> mirror <dev1> <dev1>   # add two disks as mirror to a storage pool
 zpool remove <pool> <device>            # remove single devices or mirror sets from the storage pool
+zpool upgrade <pool>                    # upgrade the storage pool to latest version
 ```
 
 # Software
@@ -69,11 +73,13 @@ zpool remove <pool> <device>            # remove single devices or mirror sets f
 # Ports
 portsnap fetch                          # fetch the latest portfiles
 portsnap update                         # update the portfiles on disk with the previously fetched portfiles
+portsnap update -p /usr/jails/basejail/usr/ports # update ports tree for jails
 whereis <portname>                      # show the directory of the portfile
 cd /usr/ports/*/<portname>              # find the parent directory of a given portname
 locate <portname> | grep ports          # manual way of searching for ports
 cd <portdir> && make install            # compile and install a port
 cd <portdir> && make config             # re-run configuration of a port when available
+cd <portdir> && sudo make deinstall clean reinstall # upgrade the port
 
 # Packages
 pkg search <packagename>                # search for binary packages
@@ -82,6 +88,11 @@ pkg info                                # show list of currently installed ports
 pkg version                             # show which ports/packages are outdated and need an update
 pkg upgrade <packagename>               # upgrade a packages
 pkg which <filename>                    # find out which package installed a given file
+
+# System
+freebsd-update fetch                    # fetch updates from server
+freebsd-update -r <target> upgrade      # fetch upgrades to specified version (e.g. '10.1-RELEASE') from server
+freebsd-update install                  # install downloaded updates/upgrades
 ```
 
 # Services
@@ -111,6 +122,7 @@ netstat -an                             # display all connections
 netstat -m                              # display buffer usage
 netstat -Lan                            # display status of listen queues
 netstat -s                              # display extensive statistics per protocol (use -p tcp to only show tcp)
+sockstat -l                             # display listening sockets, process names and pids
 sysctl kern.ipc.numopensockets          # display number of open sockets
 vmstat -z | egrep "ITEM|tcpcb"          # number of hash table buckets to handle incoming tcp connections
                                           increase net.inet.tcp.tcbhashsize if hitting the limit
@@ -144,6 +156,17 @@ ipsec restart                           # terminates all ipsec connections, send
                                           restarts it afterwards
 ipsec stroke up [conn]                  # initiate connection [conn]
 ipsec stroke down [conn]                # terminate connection [conn]
+```
+
+# ezjail
+
+```
+ezjail-admin start|stop                 # start and stop all the jails
+ezjail-admin start|stop <JID>|<hostname># start and stop individual jail
+ezjail-admin list                       # list all the jails on the host system
+ezjail-admin console <JID>|<hostname>   # open root shell into jail
+ezjail-admin create -f exmaple <hostname> <IP> # create a new jail
+ezjail-admin delete -w hostname         # delete the jail (in case you use zfs also delete the volume)
 ```
 
 # Common sysctl's to set
