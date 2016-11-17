@@ -46,6 +46,8 @@ systat -tcp 1                           # show tcp statistics
 
 ```
 zfs list                                # list all zfs datasets (volumes)
+zfs list -t snapshot                    # list all zfs snapshots
+zfs list -r -t snapshot <pool>          # list zfs snapshots for a given pool
 zfs snapshot <pool>/<dataset>@<name>    # generic way of creating a snapshot of a dataset in a storage pool
 zfs snapshot -r tank@2014021301         # create a snapshot of all datasets in the pool "tank"
 zfs create <pool>/<dataset>             # create a new dataset
