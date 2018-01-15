@@ -82,6 +82,8 @@ cd <portdir> && sudo make deinstall clean reinstall # upgrade the port
 # Packages
 pkg search <packagename>                # search for binary packages
 pkg install <packagename>               # install binary package and its dependencies
+pkg delete  <packagename>               # delete an installed package
+pkg automremove                         # remove unneeded dependencies
 pkg info                                # show list of currently installed ports/packages with version info
 pkg version                             # show which ports/packages are outdated and need an update
 pkg upgrade <packagename>               # upgrade a packages
