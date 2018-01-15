@@ -44,6 +44,8 @@ systat -tcp 1                           # show tcp statistics
 
 ```
 zfs list                                # list all zfs datasets (volumes)
+zfs list -t snapshot                    # list all zfs snapshots
+zfs list -r -t snapshot <pool>          # list zfs snapshots for a given pool
 zfs snapshot <pool>/<dataset>@<name>    # generic way of creating a snapshot of a dataset in a storage pool
 zfs snapshot -r tank@2014021301         # create a snapshot of all datasets in the pool "tank"
 zfs create <pool>/<dataset>             # create a new dataset
@@ -88,6 +90,7 @@ pkg info                                # show list of currently installed ports
 pkg version                             # show which ports/packages are outdated and need an update
 pkg upgrade <packagename>               # upgrade a packages
 pkg which <filename>                    # find out which package installed a given file
+pkg audit -F                            # look for ports/packages with security vulnerabilities
 
 # System
 freebsd-update fetch                    # fetch updates from server
