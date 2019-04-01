@@ -170,6 +170,7 @@ ezjail-admin list                       # list all the jails on the host system
 ezjail-admin console <JID>|<hostname>   # open root shell into jail
 ezjail-admin create -f exmaple <hostname> <IP> # create a new jail
 ezjail-admin delete -w hostname         # delete the jail (in case you use zfs also delete the volume)
+ezjail-admin update -U -s 11.1-RELEASE  # update basejail from -s <RELEASE> to current host system
 ```
 
 # Common sysctl's to set
