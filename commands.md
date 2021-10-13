@@ -65,6 +65,7 @@ zpool iostat -v tank                    # show more information about the pool i
 zpool add <pool> mirror <dev1> <dev1>   # add two disks as mirror to a storage pool
 zpool remove <pool> <device>            # remove single devices or mirror sets from the storage pool
 zpool upgrade <pool>                    # upgrade the storage pool to latest version
+zpool labelclear [-f] <pool>            # Clear vdev headers on disk of previous / faulted / obsolete pools
 ```
 
 # Software
