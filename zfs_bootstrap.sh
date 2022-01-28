@@ -4,7 +4,7 @@
 # https://wiki.freebsd.org/RootOnZFS/GPTZFSBoot/9.0-RELEASE
 # http://wp.strahlert.net/wordpress/zfs-2/expanding-zpool/
 
-# Tested on FreeBSD 10 and 11
+# Tested on FreeBSD 10, 11 and 12
 
 ###############################################################
 # WARNING: Go through line by line and adjust where necessary #
