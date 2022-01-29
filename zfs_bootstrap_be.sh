@@ -88,7 +88,7 @@ zfs create -o mountpoint=/ tank/ROOT/default
 # Set BOOTFS
 echo "Set BOOTFS"
 zpool set bootfs=tank/ROOT/default tank
-zfs set cachefile=/mnt/var/tmp/zpool.cache
+zpool set cachefile=/var/tmp/zpool.cache
 
 # Copy FreeBSD files
 echo "Installing FreeBSD"
