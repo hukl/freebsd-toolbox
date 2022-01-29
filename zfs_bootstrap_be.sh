@@ -80,6 +80,7 @@ zfs set compression=lz4 tank
 
 # Create a very minimal ZFS Boot Environment Layout
 # https://wiki.freebsd.org/BootEnvironments
+# https://klarasystems.com/articles/managing-boot-environments/
 echo "Creating zfs boot-environment layout"
 zfs create -o mountpoint=none tank/ROOT
 zfs create -o mountpoint=/ tank/ROOT/default
