@@ -172,4 +172,8 @@ done
 
 chown -R 1001:1001 /mnt/home/$USERNAME/.ssh
 
+# Disabling auto mount of default boot environment otherwise it will overlay future environments which
+# will prevent the new environment from booting successfully
+zfs set canmount=noauto tank/ROOT/default
+
 echo "Done"
