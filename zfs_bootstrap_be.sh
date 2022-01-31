@@ -172,7 +172,4 @@ done
 
 chown -R 1001:1001 /mnt/home/$USERNAME/.ssh
 
-# Unmount tank and re-set mountpoint
-zfs unmount -f tank
-zfs set mountpoint=/ tank
 echo "Done"
