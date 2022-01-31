@@ -67,7 +67,7 @@ sysctl vfs.zfs.min_auto_ashift=12
 
 # Create ZFS Pool
 echo "Create ZFS Pool"
-zpool create -o altroot=/mnt -o cachefile=/var/tmp/zpool.cache -f tank mirror /dev/gpt/ada0p3 /dev/gpt/ada1p3
+zpool create -o altroot=/mnt -o cachefile=/var/tmp/zpool.cache -f tank mirror /dev/ada0p3 /dev/ada1p3
 
 # Enable Compression
 echo "Enabling Compression"
