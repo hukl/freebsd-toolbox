@@ -133,7 +133,7 @@ vmstat -z | egrep "ITEM|tcpcb"          # number of hash table buckets to handle
 sysctl net.inet.tcp.hostcache.list      # display current content of hostcache with its parameters per IP
 ssh <host> sudo tcpdump \               # Send remote tcpdump output to local wireshark for live analysis
   -i em0 -U \
-  -w - "not port 22" | /path/to/Wireshark -i - -k
+  -w - "not port 22" | wireshark -i - -k
 ```
 
 # Firewall
