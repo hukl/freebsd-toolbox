@@ -131,6 +131,9 @@ sysctl kern.ipc.numopensockets          # display number of open sockets
 vmstat -z | egrep "ITEM|tcpcb"          # number of hash table buckets to handle incoming tcp connections
                                           increase net.inet.tcp.tcbhashsize if hitting the limit
 sysctl net.inet.tcp.hostcache.list      # display current content of hostcache with its parameters per IP
+ssh <host> sudo tcpdump \               # Send remote tcpdump output to local wireshark for live analysis
+  -i em0 -U \
+  -w - "not port 22" | /path/to/Wireshark -i - -k
 ```
 
 # Firewall
