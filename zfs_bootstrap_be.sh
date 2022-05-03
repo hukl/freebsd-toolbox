@@ -95,7 +95,7 @@ echo "Installing FreeBSD"
 
 cd /usr/freebsd-dist
 export DESTDIR=/mnt
-for f in base.txz lib32.txz kernel.txz doc.txz ports.txz src.txz;do
+for f in base.txz kernel.txz doc.txz ports.txz src.txz;do
   (cat $f | tar --unlink -xvpJf - -C ${DESTDIR:-/});
 done
 
@@ -126,8 +126,8 @@ RCCONF
 
 cat > /mnt/etc/fstab << FSTAB
 # Device                       Mountpoint              FStype  Options         Dump    Pass#
-/dev/gpt/swap0                 none                    swap    sw              0       0
-/dev/gpt/swap1                 none                    swap    sw              0       0
+/dev/ada0p2                    none                    swap    sw              0       0
+/dev/ada1p2                    none                    swap    sw              0       0
 FSTAB
 
 
