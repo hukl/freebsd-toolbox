@@ -186,3 +186,16 @@ hw.usb.no_shutdown_wait=1               # don't wait for USB devices when shutti
 kern.maxfiles=204800                    # Increase file descriptor limits                       
 kern.maxfilesperproc=200000
 ```
+
+# Boot Environments
+```
+bectl list                              # List existing boot environments
+bectl create <envname>                  # Create a new boot environment e.g. 13_1_RELEASE
+bectl mount <envname>                   # Mount boot environment temporary mountpoint like /tmp/be_mount.JO5Y
+bectl activate -t <envname>             # Activate new boot environment for one-time-boot
+bectl activate <envname>                # Activate new boot environment permanently
+---
+freebsd-update \                        # Example for upgrading FreeBSD to a release in a boot environment
+-b /tmp/be_mount.JO5Y \
+-d /tmp/be_mount.JO5Y/var/db/freebsd-update \
+-r 13.1-RELEASE upgrade
