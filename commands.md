@@ -127,6 +127,7 @@ netstat -m                              # display buffer usage
 netstat -Lan                            # display status of listen queues
 netstat -s                              # display extensive statistics per protocol (use -p tcp to only show tcp)
 sockstat -l                             # display listening sockets, process names and pids
+sockstat -4                             # display all IPv4 sockets - good with -l as above
 sysctl kern.ipc.numopensockets          # display number of open sockets
 vmstat -z | egrep "ITEM|tcpcb"          # number of hash table buckets to handle incoming tcp connections
                                           increase net.inet.tcp.tcbhashsize if hitting the limit
@@ -175,16 +176,6 @@ ezjail-admin console <JID>|<hostname>   # open root shell into jail
 ezjail-admin create -f exmaple <hostname> <IP> # create a new jail
 ezjail-admin delete -w hostname         # delete the jail (in case you use zfs also delete the volume)
 ezjail-admin update -U -s 11.1-RELEASE  # update basejail from -s <RELEASE> to current host system
-```
-
-# Common sysctl's to set
-
-```
-hw.usb.no_shutdown_wait=1               # don't wait for USB devices when shutting down (if your system hangs when  
-                                          rebooting)
-                                          
-kern.maxfiles=204800                    # Increase file descriptor limits                       
-kern.maxfilesperproc=200000
 ```
 
 # Boot Environments
