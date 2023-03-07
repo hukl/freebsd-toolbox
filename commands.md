@@ -68,7 +68,7 @@ zpool upgrade <pool>                    # upgrade the storage pool to latest ver
 zpool labelclear [-f] <pool>            # Clear vdev headers on disk of previous / faulted / obsolete pools
 zfs send pool/volume@snapshot \         # Compress and Encrypt a snapshot and send it to a remote host for backups
   | lz4 \                               # Decrypt with: openssl enc -d -aes-256-cbc -a -in /path/to/backup/snapshot.lz4.ssl | unlz4 > /path/to/dest 
-  | openssl enc -aes-256-cbc -a -salt \ # OR | zfs receive tank/volume
+  | openssl enc -aes-256-cbc -a -salt -pbkdf2 \ # OR | zfs receive tank/volume
   | ssh u@h "cat > /snapshot.lz4.ssl
 ```
 
