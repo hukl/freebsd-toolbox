@@ -23,7 +23,8 @@ https://www.freebsd.org/releases/13.1R/relnotes/
 * Run `freebsd-update install` with the same flags, two times in a row without rebooting
 * Disable ezjail in rc.conf
 * Temporarily activate boot environment `bectl activate -t 13_1_RELEASE`
-* When machine is back up, delete ezjail basejail and newjail `zfs destroy tank/ezjail/basejail` and `zfs destroy tank/ezjail/newjail`
+* After successful reboot, permanently activate boot environment  `bectl activate 13_1_RELEASE`
+* Delete ezjail basejail and newjail `zfs destroy tank/ezjail/basejail` and `zfs destroy tank/ezjail/newjail`
 * Re-install ezjail basejail and newjail `ezjail-admin install -sp`
 * Mergemaster jails, starting with the most important ones `sudo mergemaster -U -D /usr/jails/lb-01.production.soba.gg`
 * Check ZFS `zpool status`
