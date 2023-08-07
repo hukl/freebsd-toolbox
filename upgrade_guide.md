@@ -20,7 +20,13 @@ https://www.freebsd.org/releases/13.1R/relnotes/
   -d /tmp/be_mount.JO5Y/var/db/freebsd-update \
   -r 13.1-RELEASE upgrade
   ```
-* Run `freebsd-update install` with the same flags, two times in a row without rebooting
+* Run the following command 2x in a row without rebooting 
+  ```sh
+  freebsd-update \                     
+  -b /tmp/be_mount.JO5Y \
+  -d /tmp/be_mount.JO5Y/var/db/freebsd-update \
+  install
+  ````
 * Disable ezjail in rc.conf
 * Temporarily activate boot environment `bectl activate -t 13_1_RELEASE`
 * After successful reboot, permanently activate boot environment  `bectl activate 13_1_RELEASE`
