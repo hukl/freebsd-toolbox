@@ -1,6 +1,7 @@
 ## References
 
 * https://docs.freebsd.org/en/books/handbook/cutting-edge/
+* https://klarasystems.com/articles/managing-boot-environments/
 
 ## Preparations
 
