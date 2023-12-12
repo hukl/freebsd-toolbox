@@ -2,7 +2,7 @@
 
 # This was tested from ZSH - not sure if the glob is auto expanded in other shells
 
-unset JAIL_DIR TARBALL
+unset TARBALL
 
 usage() {
   echo "USAGE: quicketc -h | -t <path/to/tarfile> directory_or_glob_pattern"
