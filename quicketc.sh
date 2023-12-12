@@ -20,8 +20,10 @@ while getopts j:t:h opt; do
     esac done
     shift $((OPTIND - 1))
 
+# Check if TARBALL arg was provided
 [ -z "$TARBALL" ] && usage
 
+# Go through list of Jail from expanded glob pattern and build internal list
 NUMBER_OF_JAILS=0
 NUMBER_OF_JAIL_ARGS=$#
 JAILS=""
@@ -32,10 +34,6 @@ do
     NUMBER_OF_JAILS=$(($NUMBER_OF_JAILS+1))
     shift
 done
-
-echo $NUMBER_OF_JAIL_ARGS
-echo $JAILS
-
 
 # Build Tarball if specified file does not yet exist
 if [ -f $TARBALL ]
