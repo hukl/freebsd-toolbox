@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# This was tested from ZSH - not sure if the glob is auto expanded in other shells
+
 unset JAIL_DIR TARBALL
 
 usage() {
