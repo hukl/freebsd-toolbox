@@ -11,6 +11,7 @@ https://www.freebsd.org/releases/13.1R/relnotes/
 ## General Procedure
 
 * Check Release Notes for potentially breaking changes (which is rare)
+* Upgrade pkg and packages to latest versions on host `sudo pkg upgrade`
 * ZFS Snapshot `zfs snapshot -r tank@2022-08-05_01`
 * Create Boot Environemnt `bectl create 13_1_RELEASE`
 * Mount Boot Environment `bectl mount 13_1_RELEASE`
